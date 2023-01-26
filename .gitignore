@@ -1,0 +1,16 @@
+/*
+*mihon*.*
+node_modules
+*.map
+!.vscode
+!package-lock.json
+!package.json
+!README.md
+!gulpfile.js
+!screenshot.png
+!/style.css
+!/index.php
+!.gitignore
+!/src/
+!/css/**
+/src/css/style.css

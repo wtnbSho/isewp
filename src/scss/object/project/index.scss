@@ -1,0 +1,1118 @@
+/*=============================================================
+index.scss
+==============================================================*/
+@use '../../global' as *;
+
+.p-index-fv {
+	background-color: $c-primary;
+	padding-bottom: 80px;
+	@include mq(sp) {
+		padding-bottom: 0;
+	}
+	&__inner {
+		position: relative;
+		overflow: hidden;
+		@include mq(sp) {
+			height: calc(var(--vh, 1vh) * 100 - 60px);
+		}
+	}
+	&__movie {
+		display: block;
+		margin-left: auto;
+		width: 84.5%;
+
+		@include mq(sp) {
+			width: 90%;
+			height: 90%;
+			object-fit: cover;
+		}
+	}
+	&__title-wrapper {
+		position: absolute;
+		top: 33.5%;
+		left: 11.5%;
+		width: 42.5%;
+		opacity:0;
+		
+		@include mq(sp) {
+			top: 60%;
+			left: 3%;
+			width: 87%;
+		}
+	}
+	&__title-img01 {
+		width: 93%;
+	}
+	&__title-img02 {
+		width: 100%;
+	}
+	&__title-img03 {
+		width: 57%;
+
+		@include mq(sp) {
+			width: 65%;
+		}
+	}
+	&__mask {
+		display: block;
+		&.mask01 {
+		}
+		&.mask02 {
+			margin-top: -1%;
+			@include mq(sp) {
+				margin-top: -2%;
+			}
+		}
+		&.mask03 {
+			margin-left: 1.5%;
+			@include mq(sp) {
+				margin: -2.3% 0 0 1%;
+			}
+		}
+	}
+}
+
+/* --------------------------- pickup ------ */
+.p-index-pickup {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 55px;
+	@include mw(1020px);
+	@include mq(sp) {
+		display: block;
+		margin-top: 23px;
+		width: 90%;
+	}
+	// Pick Up
+	// -------------- アニメーション用 ---
+	&__heading-wrapper {
+		overflow: hidden;
+		padding-right: 70px;
+
+		@include mq(sp) {
+			padding: 0;
+		}
+	}
+	// -------------- アニメーション用 ---
+	&__heading {
+		font-family: $roboto-condensed;
+		font-weight: $thin;
+		font-style: italic;
+		position: relative;
+		font-size: 42px;
+		letter-spacing: 0.08em;
+		padding-left: 10px;
+
+		@include mq(sp) {
+			padding: 0;
+			font-size: 26px;
+			text-align: center;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: -65px;
+			width: 35px;
+			height: 1px;
+			background-color: #ccc;
+			@include mq(sp) {
+				content: none;
+			}
+		}
+	}
+	// 管理画面から変更可能なボタン
+	&__buttons {
+		display: flex;
+		@include mq(sp) {
+			margin-top: 20px;
+		}
+	}
+	&__button {
+		font-size: 26px;
+		letter-spacing: 0.04em;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 370px;
+		height: 90px;
+		border: 1px solid $c-accent;
+		position: relative;
+		padding-left: 40px;
+		@include mq(sp) {
+			font-size: 16px;
+			line-height: lh(16, 24);
+			border-width: 2px;
+			height: 70px;
+			justify-content: flex-start;
+			padding-left: 0.8em;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 5%;
+			width: 10px;
+			height: 10px;
+			border-top: 1px solid $c-accent;
+			border-right: 1px solid $c-accent;
+			transform: translateY(-50%) rotate(45deg);
+		}
+
+		&:hover {
+			color: white;
+			background-color: $c-accent;
+			&::before {
+				border-color: currentColor;
+			}
+		}
+
+		& + & {
+			// 左余白
+			margin-left: 20px;
+			@include mq(sp) {
+				margin-left: 8px;
+			}
+		}
+	}
+	// 管理画面可変ボタン①
+	&__menu-free01 {
+		@include mq {
+		}
+	}
+	// 管理画面可変ボタン②
+	&__menu-free02 {
+		@include mq {
+		}
+	}
+}
+
+/* --------------------------- post ------ */
+.p-index-post {
+	position: relative;
+	margin-top: 60px;
+	padding: 115px 0 140px;
+
+	@include mq(sp) {
+		margin-top: 40px;
+		padding: 45px 0 70px;
+	}
+	&__bg {
+		background-color: $c-p-variant;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 16%;
+			background-color: #fff;
+			z-index: 1;
+
+			@include mq(sp) {
+				content: none;
+			}
+		}
+	}
+	// 投稿ボックス
+	&__post-box {
+		position: relative;
+		z-index: 10;
+		@include mw(1180px);
+
+		// スマホ版で「一覧を見る」の位置が大きく変わるため、orderを使って位置調整したいので、flexとする
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+
+		& + & {
+			margin-top: 80px;
+			@include mq(sp) {
+				margin-top: 65px;
+			}
+		}
+	}
+	// タイトル
+	&__heading {
+		display: flex;
+		justify-content: flex-start;
+		align-items: baseline;
+
+		@include mq(sp) {
+			@include auto;
+			flex-direction: column;
+			align-items: center;
+			order: 1;
+		}
+	}
+	// School Topics / To Examinees
+	&__en-heading {
+		font-family: $roboto-condensed;
+		font-size: 84px;
+		font-weight: $thin;
+		font-style: italic;
+		// line-height: lh(84, 147);
+		letter-spacing: 0.1em;
+		color: $c-primary;
+
+		@include mq(sp) {
+			font-size: 40px;
+			// line-height: lh(40, 70);
+			display: block;
+			text-align: center;
+		}
+	}
+	// 学校トピックス・受験生の方へ
+	&__ja-heading {
+		font-size: 26px;
+		line-height: lh(26, 45.5);
+		letter-spacing: 0.08em;
+		margin-left: 30px;
+
+		@include mq(sp) {
+			font-size: 15px;
+			display: block;
+			text-align: center;
+			margin-top: 7px;
+			margin-left: 0;
+		}
+	}
+	// 一覧を見る
+	&__show-link {
+		display: inline-block;
+		color: $c-primary;
+		font-size: 20px;
+		letter-spacing: 0.12em;
+		position: relative;
+		margin-right: 25px;
+		// c-right-gray用
+		width: 155px;
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5em;
+
+		@include mq(sp) {
+			order: 3;
+			margin: 20px auto 0;
+			font-size: 17px;
+			letter-spacing: 0.08em;
+		}
+
+		&:hover {
+			.c-right-gray::before {
+				background-color: $c-primary;
+				color: $c-p-variant;
+			}
+		}
+		.c-right-gray::before {
+			width: 32px;
+			height: 32px;
+			font-size: 32px;
+			right: -30px;
+			@include mq(sp) {
+				font-size: 27px;
+				width: 27px;
+				height: 27px;
+				right: 4px;
+			}
+		}
+	}
+
+	/* --- 投稿一覧 --- */
+	&__post-list {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 40px;
+		@include mq(sp) {
+			order: 2;
+			flex-wrap: wrap;
+			margin-top: 25px;
+			@include mw(335px);
+		}
+	}
+
+	// １つの投稿
+	&__post-item {
+		width: 280px;
+
+		@include mq(sp) {
+			width: 48%;
+
+			&:nth-of-type(n + 3) {
+				margin-top: 16px;
+			}
+		}
+	}
+	// リンク
+	&__post-link {
+		display: block;
+		height: 100%;
+
+		&:hover {
+			.p-index-post__post-img {
+				transform: scale(1.2);
+			}
+		}
+	}
+	// 画像カバー
+	&__img-wrapper {
+		overflow: hidden;
+		border: 1px solid $c-primary;
+
+		@include mq(sp) {
+			border-width: 2px;
+		}
+	}
+	// 画像
+	&__post-img {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: 100%;
+		transition: all 0.2s;
+	}
+	// 投稿の文字部分
+	&__post-body {
+		padding: 1em 0.4em 0;
+		@include mq(sp) {
+			padding: 0.4em;
+		}
+	}
+	// 投稿日時とラベル
+	&__post-times {
+		display: flex;
+		align-items: center;
+	}
+	// 投稿日時
+	&__post-time {
+		font-family: $roboto;
+		font-weight: $thin;
+		font-size: 16px;
+		letter-spacing: 0.08em;
+
+		@include mq(sp) {
+			font-size: 13px;
+		}
+	}
+	// ラベル
+	&__post-label {
+		margin-left: 1em;
+		font-size: 11px;
+		color: $c-primary;
+		border: 1px solid currentColor;
+		padding: 0.4em 0.5em 0.3em;
+
+		@include mq(sp) {
+			font-size: 1.5vw;
+		}
+	}
+	// 投稿タイトル
+	&__post-title {
+		font-size: 20px;
+		line-height: lh(20, 35);
+		font-weight: bold;
+		margin-top: 0.7em;
+
+		@include mq(sp) {
+			font-size: 15px;
+			line-height: lh(15, 22.5);
+			margin-top: 0.5em;
+		}
+	}
+}
+
+/* --------------------------- movie ------ */
+.p-index-movie {
+	margin-top: 110px;
+	@include mq(sp) {
+		margin-top: 55px;
+	}
+
+	// タイトル
+	&__heading {
+		display: block;
+		@include auto;
+	}
+	// Movie
+	&__en-heading {
+		font-family: $roboto-condensed;
+		font-size: 90px;
+		font-weight: $thin;
+		font-style: italic;
+		letter-spacing: 0.08em;
+		color: $c-primary;
+		display: block;
+		text-align: center;
+
+		@include mq(sp) {
+			font-size: 45px;
+		}
+	}
+	// 学校紹介動画
+	&__ja-heading {
+		font-size: 26px;
+		line-height: lh(26, 45.5);
+		letter-spacing: 0.08em;
+		margin-top: 10px;
+		display: block;
+		text-align: center;
+
+		@include mq(sp) {
+			font-size: 15px;
+			margin-top: 5px;
+		}
+	}
+	// 動画ラッパー
+	&__movie-wrapper {
+		// margin-top: 50px;
+		// @include mw(940px);
+		// position: relative;
+		// @include mq(sp) {
+		// 	width: 335px;
+		// 	margin-top: 25px;
+		// }
+
+		// &::before {
+		// 	content: '';
+		// 	background-color: $c-primary;
+		// 	right: -10px;
+		// 	bottom: -10px;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	display: block;
+		// 	position: absolute;
+		// 	z-index: -1;
+		// 	@include mq(sp) {
+		// 		right: -3px;
+		// 		bottom: -3px;
+		// 	}
+		// }
+	}
+	// リンク
+	&__link {
+		display: block;
+		height: 100%;
+		margin-top: 50px;
+		@include mw(940px);
+		position: relative;
+		&:hover {
+			opacity: 0.8;
+		}
+		@include mq(sp) {
+			width: 335px;
+			margin-top: 25px;
+		}
+		&::before {
+			content: '';
+			background-color: $c-primary;
+			right: -10px;
+			bottom: -10px;
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+			z-index: -1;
+			@include mq(sp) {
+				right: -3px;
+				bottom: -3px;
+			}
+		}
+	}
+	// 動画
+	&__movie {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+/* --------------------------- policy ------ */
+.p-index-policy {
+	margin-top: 150px;
+	padding: 80px 0 200px;
+	position: relative;
+
+	@include mq(sp) {
+		padding: 40px 0 60px;
+		margin-top: 85px;
+	}
+
+	&__bg {
+		background-color: $c-accent;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 16%;
+			background-color: #fff;
+			z-index: 1;
+
+			@include mq(sp) {
+				width: 15px;
+			}
+		}
+	}
+	&__en-wrapper {
+		@include mw(1600px);
+	}
+	&__en-heading {
+		@include mq(sp) {
+			width: 88%;
+		}
+	}
+
+	// flex親要素
+	&__2col-box {
+		display: flex;
+		@include mw(1100px);
+
+		@include mq(sp) {
+			display: block;
+		}
+	}
+
+	/* -------------- 左 --- */
+	&__message {
+		max-width: 530px;
+		width: 50%;
+		@include mq(sp) {
+			width: 100%;
+		}
+	}
+	// h2タイトル
+	&__heading {
+		@include mq(sp) {
+			padding: 0 40px;
+		}
+	}
+	&__ja-heading {
+		margin-top: 45px;
+		@include mq(sp) {
+			width: 87%;
+			margin-top: 40px;
+		}
+	}
+	// 文章「岐阜東高等学校は生徒が日常生活において...」
+	&__message-text {
+		font-size: 22px;
+		line-height: lh(22, 60.5);
+		letter-spacing: 0.12em;
+		font-weight: bold;
+		color: #fff;
+		margin-top: 70px;
+
+		@include mq(sp) {
+			font-size: 15px;
+			font-weight: normal;
+			letter-spacing: 0.08em;
+			line-height: lh(15, 37.5);
+			margin-top: 35px;
+			padding: 0 60px 0 40px;
+		}
+	}
+	// グランドデザイン　リンク
+	&__message-link {
+		display: block;
+		margin-top: 60px;
+
+		@include mq(sp) {
+			margin: 40px 40px 0;
+		}
+
+		&::before {
+			// c-right-whiteの調整
+			right: 9%;
+			top: 64%;
+
+			@include mq(sp) {
+				content: none;
+			}
+		}
+		&:hover {
+			&::before {
+				background-color: $c-primary;
+				color: #fff;
+			}
+		}
+	}
+	// グランドデザイン　画像
+	&__message-img {
+	}
+
+	/* -------------- 左 --- */
+
+	&__overflow {
+		position: relative;
+		width: 10%;
+		@include mq(sp) {
+			position: static;
+			width: 100%;
+			margin-top: 55px;
+		}
+	}
+	&__grid-images {
+		// なんかはみ出させるための設定↓
+		min-width: 720px;
+		position: absolute;
+		top: 40px;
+		left: 0;
+		margin-left: 100px;
+		// ここまで↑
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		@include mq(sp) {
+			position: static;
+			margin-left: 0;
+			min-width: auto;
+			padding-left: 4%;
+		}
+	}
+	.grid01 {
+	}
+	.grid02 {
+		margin-top: 10px;
+		@include mq(sp) {
+			margin-top: 5px;
+			width: 52%;
+		}
+	}
+	&__img-wrapper {
+		margin: 10px 0 0 10px;
+		@include mq(sp) {
+			width: 46%;
+			margin: 5px 0 0 5px;
+		}
+	}
+	.grid03 {
+		display: block;
+	}
+	.grid04 {
+		margin-top: 10px;
+		display: block;
+		@include mq(sp) {
+			margin-top: 5px;
+		}
+	}
+}
+
+/* --------------------------- about ------ */
+.p-index-intro {
+	// パララックスラッパー
+	&__img-wrapper {
+		overflow: hidden;
+		height: 580px;
+		@include mq(sp) {
+			height: 275px;
+			position: relative;
+		}
+
+		&:nth-of-type(n + 2) {
+			margin-top: 15px;
+			@include mq(sp) {
+				margin-top: -5px;
+			}
+		}
+	}
+	// パララックス画像
+	&__main-img {
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+
+		@include mq(sp) {
+			max-width: none;
+			position: absolute;
+			&.main01 {
+				width: 150%;
+				right: -14%;
+			}
+			&.main02 {
+				width: 138%;
+				right: -18%;
+			}
+		}
+	}
+
+	// 背景色
+	&__text-bg {
+		position: relative;
+		top: -105px;
+		background-color: $c-primary;
+		width: 78%;
+		margin-left: auto;
+
+		@include mq(sp) {
+			width: 92%;
+			top: -40px;
+		}
+	}
+	// リンク
+	&__link {
+		display: block;
+		padding: 20px 0 55px 75px;
+		@include mq(sp) {
+			padding: 25px 30px;
+		}
+		&:hover {
+			.c-right-dark::before {
+				background-color: #fff;
+				color: $c-primary;
+			}
+		}
+
+		// c-right-darkの調整
+		.c-right-dark {
+			position: static;
+			&::before {
+				top: 48%;
+				right: 26%;
+				width: 66px;
+				height: 66px;
+				font-size: 66px;
+				color: #fff;
+
+				@include mq(sp) {
+					width: 33px;
+					height: 33px;
+					font-size: 33px;
+					top: 21%;
+					right: 5%;
+				}
+			}
+		}
+	}
+	// タイトル
+	&__heading {
+		color: #fff;
+		display: flex;
+		align-items: baseline;
+		@include mq(sp) {
+			// display: block;
+			flex-direction: column;
+		}
+	}
+	// About School/ School Life
+	&__en-heading {
+		font-family: $roboto-condensed;
+		font-size: 74px;
+		font-weight: $thin;
+		font-style: italic;
+		line-height: lh(74, 129.5);
+		letter-spacing: 0.1em;
+
+		@include mq(sp) {
+			font-size: 37px;
+			line-height: 1;
+			display: block;
+		}
+	}
+	// 学校の紹介/ 学校の生活
+	&__ja-heading {
+		font-size: 26px;
+		line-height: lh(26, 45.5);
+		letter-spacing: 0.08em;
+		margin-left: 1.2em;
+
+		@include mq(sp) {
+			font-size: 15px;
+			line-height: lh(15, 26.25);
+			display: block;
+			margin: 8px 0 0;
+		}
+	}
+	// タイトル下紹介文
+	&__text {
+		color: #fff;
+		font-size: 20px;
+		line-height: 2;
+		letter-spacing: 0.04em;
+		margin-top: 15px;
+		@include mq(sp) {
+			font-size: 15px;
+			line-height: lh(15, 26.25);
+			margin-top: 12px;
+		}
+	}
+}
+
+/* --------------------------- entrance ------ */
+
+.p-index-entrance {
+	padding: 115px 0 135px;
+	margin-top: 40px;
+	color: #fff;
+	background: url(../images/index_entrance_bg.jpg) no-repeat center center/cover;
+
+	@include mq(sp) {
+		padding: 55px 0 50px;
+	}
+	// インナー
+	&__inner {
+		@include mw(1080px);
+		@include mq(sp) {
+			max-width: 90%;
+		}
+	}
+	// タイトル
+	&__heading {
+		display: block;
+		@include auto;
+	}
+	// Entrance exams
+	&__en-heading {
+		font-family: $roboto-condensed;
+		font-size: 90px;
+		font-weight: $thin;
+		font-style: italic;
+		letter-spacing: 0.08em;
+		display: block;
+		text-align: center;
+
+		@include mq(sp) {
+			font-size: 40px;
+			letter-spacing: 0.1em;
+		}
+	}
+	// 受験をお考えの方へ
+	&__ja-heading {
+		font-size: 26px;
+		line-height: lh(26, 45.5);
+		letter-spacing: 0.08em;
+		margin-top: 15px;
+		display: block;
+		text-align: center;
+
+		@include mq(sp) {
+			font-size: 15px;
+			margin-top: 10px;
+		}
+	}
+	// 親要素
+	&__items {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 70px;
+		@include mq(sp) {
+			margin-top: 25px;
+		}
+	}
+	// aタグ
+	&__item {
+		border: 2px solid currentColor;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		max-width: 340px;
+		width: 100%;
+		height: 300px;
+		position: relative;
+		@include mq(sp) {
+			width: 49%;
+			height: 160px;
+
+			&:nth-of-type(n + 3) {
+				margin-top: 17px;
+			}
+		}
+
+		// ２段目以降の余白
+		&:nth-of-type(n + 4) {
+			margin-top: 30px;
+			@include mq(sp) {
+				margin-top: 17px;
+			}
+		}
+		&:hover {
+			color: $c-primary;
+			background-color: #fff;
+			&::before {
+				transform: translateX(-50%) translateY(7px) rotate(45deg);
+			}
+		}
+		// 下マーク
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 10%;
+			left: 50%;
+			width: 18px;
+			height: 18px;
+			border-right: 2px solid currentColor;
+			border-bottom: 2px solid currentColor;
+			transform: translateX(-50%) rotate(45deg);
+			transition: all 0.5s;
+			@include mq(sp) {
+				width: 10px;
+				height: 10px;
+				bottom: 12%;
+			}
+		}
+	}
+	// icomoon
+	&__icon {
+		font-size: 50px;
+		margin-top: 50px;
+		@include mq(sp) {
+			font-size: 25px;
+			margin-top: 22px;
+		}
+	}
+	// 文字部分
+	&__text {
+		text-align: center;
+		margin-top: 35px;
+		@include mq(sp) {
+			margin-top: 20px;
+		}
+	}
+	// 日本語部分
+	&__text-ja {
+		font-weight: bold;
+		font-size: 30px;
+		letter-spacing: 0.04em;
+		display: block;
+		@include mq(sp) {
+			font-size: 18px;
+		}
+	}
+	// 英語部分
+	&__text-en {
+		font-family: $roboto;
+		font-weight: $thin;
+		font-size: 20px;
+		letter-spacing: 0.06em;
+		display: block;
+		margin-top: 15px;
+		@include mq(sp) {
+			font-size: 13px;
+			margin-top: 13px;
+		}
+	}
+}
+
+/* --------------------------- others ------ */
+.p-index-others {
+	&__list {
+		margin-top: 140px;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		@include mw(1100px);
+		@include mq(sp) {
+			margin-top: 50px;
+			max-width: 90%;
+		}
+	}
+	// リスト要素
+	&__list-item {
+		margin-left: 25px;
+
+		&:nth-of-type(3n + 1) {
+			margin-left: 0;
+			@include mq(sp) {
+				margin-left: initial;
+			}
+		}
+
+		&:nth-of-type(n + 4) {
+			margin-top: 25px;
+			@include mq(sp) {
+				margin-top: initial;
+			}
+		}
+
+		@include mq(sp) {
+			width: 49%;
+			margin-left: initial;
+			position: relative;
+
+			&:nth-of-type(2n) {
+				margin-left: 2%;
+			}
+			&:nth-of-type(n + 3) {
+				margin-top: 7px;
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 12px;
+				width: 10px;
+				height: 10px;
+				border-top: 1px solid $c-primary;
+				border-right: 1px solid $c-primary;
+				transform: translateY(-50%) rotate(45deg);
+			}
+		}
+	}
+	// リンク
+	&__list-link {
+		width: 350px;
+		height: 120px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border: 1px solid $c-primary;
+		padding: 0 30px;
+		@include mq(sp) {
+			width: 100%;
+			height: 100%;
+			padding: 11px 12px;
+		}
+
+		.c-right-white {
+			right: 35px;
+		}
+
+		&:hover {
+			.c-right-white::before {
+				color: #fff;
+				background-color: $c-primary;
+			}
+		}
+	}
+
+	&__list-text {
+		font-size: 26px;
+		line-height: lh(26, 39);
+		letter-spacing: 0.04em;
+		@include mq(sp) {
+			font-size: 16px;
+			line-height: lh(16, 24);
+		}
+	}
+	&__list-icon {
+		@include mq(sp) {
+			display: none;
+		}
+	}
+}
+
+/* -------------- splide --- */
+.p-index-others__splide {
+	margin-top: 180px;
+	@include mq(sp) {
+		margin-top: 50px;
+	}
+}

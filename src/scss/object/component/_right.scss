@@ -1,0 +1,115 @@
+@use '../../global' as *;
+
+/* --------------------------- ダーク ------ */
+.c-right-dark {
+	// span要素を想定
+	// rightなどで位置調整
+	position: relative;
+	&::before {
+		content: '\e900';
+		-webkit-font-smoothing: antialiased;
+		font-family: 'icomoon' !important;
+		font-size: 42px;
+		width: 42px;
+		height: 42px;
+		border: 1px solid #fff;
+		background-color: $c-primary;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color 0.2s;
+		@include mq(sp) {
+			font-size: 25px;
+			width: 25px;
+			height: 25px;
+			right: 14px;
+		}
+	}
+}
+
+// .c-right-darkの親要素に移動させよう ------
+// &:hover {
+// 	.c-right-dark::before {
+// 		background-color: #fff;
+// 		color: $c-primary;
+// 	}
+// }
+// -------------------------------------------
+
+
+/* --------------------------- グレー ------ */
+.c-right-gray {
+	// span要素を想定
+	// rightなどで位置調整
+	position: relative;
+	&::before {
+		content: '\e900';
+		-webkit-font-smoothing: antialiased;
+		font-family: 'icomoon' !important;
+		font-size: 42px;
+		width: 42px;
+		height: 42px;
+		border: 1px solid $c-primary;
+		background-color: $c-p-variant;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color 0.2s;
+		@include mq(sp) {
+			font-size: 25px;
+			width: 25px;
+			height: 25px;
+			right: 14px;
+		}
+	}
+}
+
+// .c-right-grayの親要素に移動させよう ------
+// &:hover {
+// 	.c-right-gray::before {
+// 		background-color: $c-primary;
+// 		color: $c-p-variant;
+// 	}
+// }
+// -------------------------------------------
+
+
+
+/* --------------------------- ホワイト ------ */
+.c-right-white {
+	// span要素を想定
+	// rightなどで位置調整
+	position: relative;
+	&::before {
+		content: '\e900';
+		-webkit-font-smoothing: antialiased;
+		font-family: 'icomoon' !important;
+		font-size: 42px;
+		width: 42px;
+		height: 42px;
+		border: 1px solid $c-primary;
+		background-color: #fff;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color 0.2s;
+		@include mq(sp) {
+			font-size: 25px;
+			width: 25px;
+			height: 25px;
+			right: 14px;
+		}
+	}
+}
+
+// .c-right-whiteの親要素に移動させよう ------
+// &:hover {
+// 	.c-right-white::before {
+// 		background-color: $c-primary;
+// 		color: #fff;
+// 	}
+// }
+// -------------------------------------------

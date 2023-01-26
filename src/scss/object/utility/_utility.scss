@@ -1,0 +1,145 @@
+@use '../../global' as *;
+// utilityを使うかどうかの判断基準
+// 同じ要素（クラス）なのになぜか1箇所だけ他とスタイルが違う
+// その上、projectやcomponentのModifierで拡張するのが難しい、または適切ではない（拡張すると逆に複雑になりそう）
+
+
+.u-sp {
+	display: none;
+	@include mq {
+		display: block;
+	}
+}
+
+.u-pc {
+	display: block;
+	@include mq {
+		display: none;
+	}
+}
+
+// margin-top
+@for $i from 1 through 20 {
+	.u-mt#{$i * 10} {
+		margin-top: $i * 10px;
+	}
+}
+// margin-bottom
+@for $i from 1 through 20 {
+	.u-mb#{$i * 10} {
+		margin-bottom: $i * 10px;
+	}
+}
+
+// font-size
+@for $i from 14 through 54 {
+	.u-fz#{$i} {
+		font-size: #{$i}px;
+	}
+}
+// font-size(sp)
+@include mq {
+	@for $i from 11 through 20 {
+		.u-fz#{$i}-sp {
+			font-size: #{$i}px;
+		}
+	}
+}
+
+// line-height
+.u-lh1 {
+	line-height: 1;
+}
+.u-lh125 {
+	line-height: 1.25;
+}
+.u-lh15 {
+	line-height: 1.5;
+}
+.u-lh175 {
+	line-height: 1.75;
+}
+.u-lh2 {
+	line-height: 2;
+}
+@include mq {
+	.u-lh1-sp {
+		line-height: 1;
+	}
+	.u-lh125-sp {
+		line-height: 1.25;
+	}
+	.u-lh15-sp {
+		line-height: 1.5;
+	}
+	.u-lh175-sp {
+		line-height: 1.75;
+	}
+	.u-lh2-sp {
+		line-height: 2;
+	}
+}
+
+.u-kome > li,
+.u-disc > li {
+	list-style-position: inside;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+// ※箇条書き
+.u-kome > li:before {
+	display: inline;
+	content: '\203b';
+}
+/*・箇条書き*/
+.u-disc > li:before {
+	display: inline;
+	content: '\30fb';
+}
+
+// text-align
+.u-tac {
+	text-align: center;
+}
+.u-tal {
+	text-align: left;
+}
+.u-tar {
+	text-align: right;
+}
+.u-taj {
+	text-align: justify;
+}
+@include mq {
+	.u-tac-sp {
+		text-align: center;
+	}
+	.u-tal-sp {
+		text-align: left;
+	}
+	.u-tar-sp {
+		text-align: right;
+	}
+	.u-taj-sp {
+		text-align: justify;
+	}
+}
+
+// 文字がギリギリはみ出すとき
+.u-Mr05 {
+	margin-right: -0.5em;
+}
+
+// dispaly: inline-block;
+.u-dib-pc {
+	display: inline-block;
+	@include mq(sp) {
+		display: none;
+	}
+}
+.u-dib-sp {
+	display: none;
+	@include mq(sp) {
+		display: inline-block;
+	}
+}

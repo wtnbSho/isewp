@@ -1,0 +1,70 @@
+/*=============================================================
+_hamburger.scss
+==============================================================*/
+@use '../../global' as *;
+.c-hamburger {
+	width: 140px;
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: $c-accent;
+	cursor: pointer;
+
+	// @include mq(lg) {
+	// 	width: 80px;
+	// 	height: 80px;
+	// }
+	@include mq(sp) {
+		width: 60px;
+		height: 60px;
+	}
+}
+.c-hamburger__icon {
+	position: relative;
+	display: block;
+}
+.c-hamburger__icon,
+.c-hamburger__icon::before,
+.c-hamburger__icon::after {
+	width: 40px;
+	height: 2px;
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	background-color: #fff;
+	@include mq(sp) {
+		width: 20px;
+	}
+}
+.c-hamburger__icon::before,
+.c-hamburger__icon::after {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	content: '';
+	@include mq(sp) {
+		top: 5px;
+	}
+}
+.c-hamburger__icon::after {
+	top: -10px;
+	@include mq(sp) {
+		top: -5px;
+	}
+}
+.js-hamburger.active .c-hamburger__icon {
+	background-color: transparent;
+}
+.js-hamburger.active .c-hamburger__icon::before,
+.js-hamburger.active .c-hamburger__icon::after {
+	top: 0;
+}
+.js-hamburger.active .c-hamburger__icon::before {
+	transform: rotate(45deg);
+}
+.js-hamburger.active .c-hamburger__icon::after {
+	transform: rotate(-45deg);
+}

@@ -1,0 +1,151 @@
+/*=============================================================
+_header.scss
+==============================================================*/
+@use '../global' as *;
+
+// layoutに属する基準は、「大きい要素かどうか」「複数ページ共通するかどうか」
+// コンテンツは違うけどデザインが一緒な量産ページもここ。
+// ctaもここにあたる。.l-contact__***
+// 「大きい要素」としてあるのは、ほぼ全ページに使用されているが「小さい」パンくずリストはcomponentに分類したほうがいいため。
+// .l-***は、レイアウト以外の役割を与えない・・・は、逆に使いにくくない？ということで、.l-*が付く子要素は全てl-*で書いていく
+
+.l-header {
+	min-height: 200px;
+	display: flex;
+	justify-content: space-between;
+	@include mw(1600px);
+	padding: 0 170px 0 105px;
+
+	// @include mq(lg) {
+	// 	padding: 0 150px 0 80px;
+	// }
+	// @media screen and (max-width: 900px) {
+	// 	padding: 0 100px 0 30px;
+	// }
+	@include mq(sp) {
+		display: block;
+		min-height: 60px;
+		padding: 0;
+	}
+
+	&__logo {
+		margin-top: 35px;
+		@include mq(sp) {
+			margin: auto;
+		}
+	}
+
+	&__logo-img {
+		@include mq {
+			width: 165px;
+			width: 165px;
+			margin: 13px 0 0 22px;
+		}
+	}
+	&__logo-link {
+
+	}
+
+	// ヘッダー右側のボタン類 flex
+	// 追従ボタンは含めない
+	&__menu {
+		height: 100%;
+		justify-self: end;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		@include mq {
+			display: none;
+		}
+	}
+
+	// メニュー上側 flex
+	&__menu-top {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 28px;
+		@include mq {
+		}
+	}
+	&__menu-top-item {
+		position: relative;
+		font-size: 18px;
+		padding-left: 28px;
+		&::before {
+			content: '';
+			width: 9px;
+			height: 9px;
+			border-top: 1px solid $c-accent;
+			border-right: 1px solid $c-accent;
+			transform: translateY(-50%) rotate(45deg);
+			position: absolute;
+			left: 0;
+			top: 50%;
+		}
+		// 左余白
+		& + & {
+			margin-left: 28px;
+		}
+		&:hover {
+			color: $c-accent;
+		}
+		@include mq {
+		}
+	}
+	// 「交通アクセス」
+	&__menu-access {
+		@include mq {
+		}
+	}
+	// 「お問い合わせ」
+	&__menu-contact {
+		@include mq {
+		}
+	}
+	// メニュー下側 flex
+	&__menu-bottom {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 25px; // メニュー上下余白
+		// @include mq(lg) {
+		// 	flex-direction: column;
+		// }
+		@include mq {
+		}
+	}
+	&__menu-bottom-item {
+		font-size: 20px;
+		letter-spacing: 0.04em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 260px;
+		height: 70px;
+		border: 1px solid $c-accent;
+		// @include mq(lg) {
+		// 	width: 270px;
+		// 	height: 50px;
+		// }
+
+		&:hover {
+			color: white;
+			background-color: $c-accent;
+		}
+
+		& + & {
+			// 左余白
+			margin-left: 15px;
+			// @include mq(lg) {
+			// 	margin: 15px 0 0 0;
+			// }
+		}
+	}
+	// 管理画面可変ボタン①
+	&__menu-free01 {
+	}
+	// 管理画面可変ボタン②
+	&__menu-free02 {
+	}
+}

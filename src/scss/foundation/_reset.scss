@@ -1,0 +1,98 @@
+/*=============================================================
+_reset.scss
+==============================================================*/
+// reset.cssを他と合わせてパーシャルファイルにしただけ
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+body {
+	line-height: 1;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+html, body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td, figure, figcaption, small {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align:baseline;
+	-webkit-font-smoothing: antialiased;
+	outline:none;
+}
+em {
+	font-style: normal;
+}
+h1,h2,h3,h4,h5,h6,table,tr,th,td {
+	font-weight: normal;
+}
+table, tr, th, td {
+	vertical-align: middle;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+table {
+	border-collapse: collapse;
+}
+main,article, header, footer, aside, figure, figcaption, nav, section {
+	display:block;
+}
+ol, ul, li {
+	list-style: none;
+	list-style-type: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+	box-sizing: border-box;
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	vertical-align:middle;
+	position:relative;
+}
+button {
+	overflow: visible;
+}
+select::-ms-expand {
+	display: none;
+}
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="text"],
+input[type="submit"],
+input[type="button"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+	appearance: none;
+	border-radius:0;
+}
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="text"],
+input[type="submit"],
+input[type="button"],
+input[type="password"],
+input[type="search"]{
+	line-height: normal; /*placeholderズレ用*/
+}
+
+
+/*type=numberの増減ボタンを消す*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="number"] {
+	-moz-appearance:textfield;
+}

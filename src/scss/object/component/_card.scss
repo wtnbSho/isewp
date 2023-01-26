@@ -1,0 +1,61 @@
+/*=============================================================
+_card.scss
+==============================================================*/
+@use '../../global' as *;
+// カードリスト
+
+// .c-cards { // カード親
+// 	@include mw(1260px);
+// 	display: flex;
+// 	justify-content: space-between;
+// 	flex-wrap: wrap;
+
+// 	@include mq {
+// 		display: block;
+// 	}
+// }
+// .c-card { // １つのカード
+// 	background : linear-gradient(45deg, rgba(0, 111, 185, 1) 0%, rgba(0, 199, 255, 1) 100%);
+// 	color: white;
+// 	padding: 70px 80px;
+// 	width: calc((606 / 1260) * 100%);
+
+// 	&:nth-of-type(n+3) { // pc版用 余白
+// 		margin-top: 50px;
+// 	}
+
+// 	@include mq {
+// 		@include w(80%);
+// 		padding: 30px 40px 40px;
+
+// 		& + & {
+// 			margin-top: 40px; //sp版用 余白
+// 		}
+// 	}
+
+
+// 	&__heading {
+// 		font-size: 32px;
+// 		font-weight: bold;
+// 		line-height: lh(32,48);
+// 		letter-spacing: 0.04em;
+// 		text-align: center;
+
+// 		@include mq {
+// 			@include mq {
+// 				font-size: 20px;
+// 			}
+// 		}
+// 	}
+
+// 	&__text {
+// 		line-height: lh(20,35);
+// 		letter-spacing: 0.04em;
+// 		margin-top: 30px;
+
+// 		@include mq {
+// 			margin-top: 20px;
+// 		}
+
+// 	}
+// }

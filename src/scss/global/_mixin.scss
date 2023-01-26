@@ -1,0 +1,79 @@
+// 絶対配置 X Y 中央ぞろえ
+@mixin center-pos {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+//絶対配置 X 中央ぞろえ
+@mixin center-pos-x {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+// 絶対配置 Y 中央ぞろえ
+@mixin center-pos-y {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// センタリング
+@mixin auto {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+//最大幅
+@mixin mw($mw){
+	max-width: #{$mw};
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@mixin w($w) {
+	width: #{$w};
+	margin-right: auto;
+	margin-left: auto;
+}
+
+// メディアクエリ
+$mq-breakpoints: (
+	// 'xs': 321px,
+	// 'sm': 576px,
+	// 'md': 768px,
+	// 'lg': 1024px,
+	// 'xl': 1280px,
+	'sp': 500px,
+	'md': 1100px,
+	'lg': 1300px,
+) !default;
+
+@mixin mq($breakpoint: sp, $rule:max) {
+	$breakpoint: map-get($mq-breakpoints, $breakpoint);
+	@if $rule == min {
+		$breakpoint: $breakpoint + 1px;
+	}
+	@media screen and (#{$rule}-width:$breakpoint){
+		@content;
+	}
+}
+
+// 使うとき(max-width)
+.element01 {
+	// sp用スタイル
+	@include mq {
+		// @media screen and (max-width: 500px)と同じ
+	}
+	@include mq (lg) {
+		// @media screen and (max-width: 1024px)と同じ
+	}
+}
+
+// 使うとき(min-width)
+.element02 {
+	// ここにpcスタイル
+	@include mq(md, min) {
+		// @media screen and (min-width: 768px)と同じ
+	}
+}

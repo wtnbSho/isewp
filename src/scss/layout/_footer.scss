@@ -1,0 +1,394 @@
+/*=============================================================
+_footer.scss
+==============================================================*/
+@use '../global' as *;
+
+.l-footer {
+	padding-top: 95px;
+	background-color: $c-primary;
+	color: #fff;
+
+	@include mq {
+		padding-bottom: $footer-fixed-height; // .l-footer__fixed 占有スペースを確保
+		padding-top: 45px;
+	}
+
+	&__inner {
+		@include mw(1100px);
+		// @include mq(md) {
+		// 	padding: 0 45px;
+		// }
+		@include mq {
+			padding: 0;
+			max-width: 300px;
+			margin: 0 auto;
+		}
+	}
+	// フッタートップのflex親要素
+	&__top {
+		display: flex;
+		justify-content: space-between;
+
+		@include mq(sp) {
+			display: block;
+		}
+	}
+
+	// インフォエリア
+	&__school-info {
+	}
+	&__school-name {
+	}
+
+	// 学校法人富田学園
+	&__school-name-top {
+		font-size: 18px;
+		line-height: lh(18, 31.5);
+		letter-spacing: 0.12em;
+		display: block;
+		@include mq {
+			font-size: 14px;
+		}
+	}
+	//岐阜東高等学校
+	&__school-name-bottom {
+		font-size: 32px;
+		line-height: lh(32, 56);
+		letter-spacing: 0.12em;
+		display: block;
+		@include mq {
+			font-size: 23px;
+		}
+	}
+	// 〒...
+	&__address {
+		font-size: 18px;
+		line-height: lh(18, 31.5);
+		margin-top: 5px;
+		@include mq {
+			font-size: 14px;
+			margin-top: 0;
+		}
+	}
+	// 電話番号
+	&__tel {
+		@include mq {
+		}
+	}
+	//TEL
+	&__tel-tel {
+		font-size: 16px;
+		line-height: lh(18, 31.5);
+		letter-spacing: 0.1em;
+		@include mq {
+			font-size: 14px;
+			letter-spacing: 0;
+		}
+	}
+	// 058-...
+	&__tel-num {
+		font-size: 27px;
+		line-height: lh(18, 31.5);
+		letter-spacing: 0.1em;
+		font-family: $roboto-condensed;
+		font-weight: $regular;
+		@include mq {
+			margin-left: 5px;
+			font-size: 19px;
+		}
+	}
+	// follow us instagram　のリンク
+	&__insta-link {
+		display: inline-block;
+		padding: 20px 10px 10px 5px;
+		transition: opacity 0.1s;
+		&:hover {
+			opacity: 0.7;
+		}
+		@include mq(sp) {
+			padding: 0;
+			width: 215px;
+			display: block;
+			margin-top: 13px;
+		}
+	}
+
+	&__insta-img {
+		@include mq(sp) {
+		}
+	}
+
+	// ボタンエリア
+	&__buttons {
+		margin-top: 10px;
+		@include mq {
+			margin-top: 45px;
+		}
+	}
+	// 枠付きボタン
+	&__border-button {
+		width: 390px;
+		height: 100px;
+		font-size: 24px;
+		display: flex;
+		justify-content: space-between; // アイコンを右端へ
+		align-items: center;
+		border: 1px solid #fff;
+		position: relative;
+		padding-left: 40px;
+
+		.c-right-dark::before {
+				right: 25px;
+		}
+		&:hover {
+			.c-right-dark::before {
+				background-color: #fff;
+				color: $c-primary;
+			}
+		}
+		// @include mq(md) {
+		// 	width: 300px;
+		// 	height: 80px;
+		// }
+		@include mq {
+			width: 100%;
+			height: 70px;
+			font-size: 18px;
+			padding: 0 0 0 24px;
+		}
+
+		& + & {
+			margin-top: 20px;
+			@include mq(sp) {
+				margin-top: 15px;
+			}
+		}
+	}
+
+	// メニューエリア
+	&__menus {
+		margin-top: 110px;
+		font-size: 16px;
+		display: flex;
+		justify-content: space-between;
+		// @include mq(md) {
+		// 	flex-wrap: wrap;
+		// }
+		@include mq {
+			flex-wrap: wrap;
+			margin-top: 35px;
+		}
+	}
+
+	&__menu {
+		// @include mq(md) {
+		// 	width: 50%;
+		// }
+		@include mq(sp) {
+			width: 45%;
+			&:nth-of-type(n + 3) {
+				margin-top: 25px;
+			}
+			&:last-of-type {
+				width: 100%;
+			}
+		}
+	}
+	&__menu-title {
+		font-size: 20px;
+		line-height: lh(20, 35);
+		letter-spacing: 0.12em;
+		font-weight: bold;
+		@include mq(sp) {
+			font-size: 16px;
+			letter-spacing: 0;
+		}
+	}
+	// 子リストの親
+	&__menu-items {
+		margin-top: 10px;
+		list-style-position: inside;
+		padding-left: 1.4em; // インデント整え
+		@include mq(sp) {
+			margin-top: 0;
+			padding-left: 0.9em; // インデント整え
+		}
+	}
+	// リスト1つ
+	&__menu-item {
+		font-size: 18px;
+		line-height: lh(18, 27);
+		@include mq(sp) {
+			font-size: 14px;
+			line-height: 1.4;
+		}
+	}
+	&__menu-link {
+		display: inline-block;
+		padding: 0.5em 0;
+		position: relative;
+		transition: opacity 0.2s;
+		@include mq(sp) {
+			padding: 0.4em 0;
+		}
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&::before {
+			// 全角のマイナス
+			content: '\2212';
+			position: absolute;
+			left: -1em;
+
+			@include mq(sp) {
+				font-size: 10px;
+			}
+		}
+	}
+
+	// フッター下部エリア
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 125px;
+		@include mq(sp) {
+			flex-direction: column-reverse;
+			margin-top: 45px;
+		}
+	}
+	&__privacy {
+		font-size: 18px;
+		line-height: lh(18, 31.5);
+		transition: opacity 0.2s;
+		@include mq {
+			font-size: 14px;
+			margin-top: 60px;
+			text-align: center;
+		}
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	&__school {
+		// margin-top: 30px;
+		@include mq {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+	&__school-link {
+		position: relative;
+		font-size: 16px;
+		line-height: lh(16, 28);
+		letter-spacing: 0.12em;
+		padding: 1em 0 1em 2em;
+		// 左余白
+		& + & {
+			margin-left: 1em;
+			@include mq(sp) {
+				margin-left: 0;
+			}
+		}
+		@include mq(sp) {
+			font-size: 14px;
+			padding: 0.4em 0.4em 0.4em 1em;
+			line-height: 1;
+			&:nth-of-type(2) {
+				margin-left: 1.5em;
+			}
+			&:nth-of-type(n+3) {
+				margin-top: 0.3em;
+			}
+		}
+		&::before {
+			content: '';
+			width: 9px;
+			height: 9px;
+			border-top: 1px solid #fff;
+			border-right: 1px solid #fff;
+			transform: translateY(-50%) rotate(45deg);
+			position: absolute;
+			left: 10px;
+			top: 50%;
+			transition: opacity 0.2s;
+			@include mq(sp) {
+				width: 6px;
+				height: 6px;
+				left: 0;
+			}
+		}
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	// コピーライト
+	&__copyright {
+		text-align: center;
+		height: 130px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 14px;
+
+		@include mq {
+			height: 50px;
+			font-size: 10px;
+		}
+	}
+
+	/* --------------------------- spフッター固定ボタン ------ */
+	@include mq {
+		&__fixed {
+			height: $footer-fixed-height;
+			background-color: #fff;
+			position: fixed;
+			z-index: 100;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+			opacity: 0;
+			visibility: hidden;
+		}
+		// li要素
+		&__fixed-item {
+			width: calc(100% / 3 );
+			background-color: #fff;
+			color: $c-primary;
+			position: relative;
+
+			&:nth-of-type(n+2)::before {
+				content:"";
+				position: absolute;
+				width: 1px;
+				height: 45px;
+				background-color: $c-primary;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+			}
+		}
+		// メニューリンク
+		&__fixed-link {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-direction: column;
+			height: 100%;
+		}
+		// icomoon
+		&__fixed-icon {
+			font-size: 20px;
+			margin-top: 10px;
+		}
+		// メニューテキスト
+		&__fixed-text {
+			margin-top: 10px;
+			font-size: 14px;
+		}
+	}
+}

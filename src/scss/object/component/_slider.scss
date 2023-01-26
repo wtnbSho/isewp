@@ -1,0 +1,66 @@
+/*=============================================================
+_slider.scss
+==============================================================*/
+@use '../../global' as *;
+// Slickスライダー
+
+// .c-slider {
+// 	text-align: center;
+// 	@include w(1100px);
+// 	height: 740px;
+
+// 	@include mq {
+// 		width: 80%;
+// 		height: auto;
+// 	}
+
+// 	&__slide {
+
+// 	}
+// 	&__slide-img {
+
+// 	}
+// 	&__slide-text {
+// 		font-size: 36px;
+// 		margin-top: 40px;
+
+// 		@include mq {
+// 			font-size: 18px;
+// 			margin-top: 20px;
+// 		}
+// 	}
+
+// 	&__arrow {
+// 		position: absolute;
+// 		top: 42%;
+// 		z-index: 10;
+// 		transition: opacity .2s;
+
+// 		@include mq {
+// 			width: 24px;
+// 			height: 18px;
+// 			top: 35%;
+// 		}
+
+// 		&:hover {
+// 			opacity: .7;
+// 			cursor: pointer;
+// 		}
+
+// 		&.c-slider__arrow--prev { // モディファイア
+// 			left: -80px;
+
+// 			@include mq {
+// 				left: -20px;
+// 			}
+// 		}
+
+// 		&.c-slider__arrow--next { // モディファイア
+// 			right: -80px;
+
+// 			@include mq {
+// 				right: -20px;
+// 			}
+// 		}
+// 	}
+// }

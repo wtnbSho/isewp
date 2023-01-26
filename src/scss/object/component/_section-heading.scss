@@ -1,0 +1,35 @@
+/*=============================================================
+_heading.scss
+==============================================================*/
+@use '../../global' as *;
+// 「複数ページで使用されている要素かどうか」
+// ボタン、見出し、パンくずリスト、ページネーションも含む
+// 「スタイルもモジュールとしての役割も同じ」
+// 完全に独立したパーツなので、クラスを当てたらすべて同じ見た目になるようになる。
+
+// セクションのタイトル
+.c-section-heading {
+	font-family: $roboto-condensed;
+	font-weight: $thin;
+	font-size: 84px; // フォントサイズは使用箇所で付与した方がいい。統一性皆無
+	letter-spacing: 0.01em;
+	color: $c-primary;
+	@include mq {
+		font-size: 50px;
+	}
+
+	&__sub {
+		font-weight: bold;
+		color: $c-emphasis;
+		font-size: 28px;
+		line-height: lh(28, 49);
+		display: block;
+		letter-spacing: 0.04em;
+		margin-top: 20px;
+
+		@include mq {
+			font-size: 18px;
+			margin-top: 10px;
+		}
+	}
+}

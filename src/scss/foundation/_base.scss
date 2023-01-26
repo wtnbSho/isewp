@@ -1,0 +1,237 @@
+/*=============================================================
+_base.scss
+==============================================================*/
+@use '../global' as *;
+// _reset.cssでリセットしきれなかったスタイルを記述する
+
+// ================================================
+// *  一般・共通設定
+// ================================================
+body {
+	color: $base-text-color;
+	font-size: $base-font-size;
+	min-width: $base-min-width;
+	font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro',
+		'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', Helvetica,
+		sans-serif;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.1s linear;
+}
+@media screen and (min-width: 501px) {
+	a[href^='tel'] {
+		pointer-events: none;
+	}
+}
+
+img,
+svg {
+	vertical-align: bottom;
+}
+
+// Animate.css用
+.animated {
+	opacity: 0;
+}
+.animated.move {
+	opacity: 1;
+}
+.animation {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.lazyload {
+	opacity: 0;
+}
+
+// ================================================
+// *  コンテンツ
+// ================================================
+main {
+	overflow: hidden;
+}
+
+// ******箇条書きリスト******
+.kome_list li,
+.disc_list li,
+.circle_list li,
+.square_list li,
+.indent_list li {
+	list-style-position: inside;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+// ※箇条書き
+.kome_list > li:before {
+	display: inline;
+	content: '\203b';
+}
+// ・箇条書き
+.disc_list > li:before {
+	display: inline;
+	content: '\30fb';
+}
+// ●箇条書き
+.circle_list > li:before {
+	display: inline;
+	content: '\25CF';
+}
+// ■箇条書き
+.square_list > li:before {
+	display: inline;
+	content: '\25A0';
+}
+// ()数字
+.number_list {
+	counter-reset: cnt 0;
+}
+.number_list > li {
+	padding-left: 2.16em;
+	text-indent: -2.66em;
+	list-style-type: none;
+	list-style-position: inside;
+	counter-increment: cnt;
+}
+.number_list > li:before {
+	display: inline;
+	content: '（' counter(cnt) '）';
+}
+// 数字.
+.decimal_list {
+	counter-reset: dcnt 0;
+}
+.decimal_list > li {
+	padding-left: 1em;
+	text-indent: -1em;
+	list-style-type: none;
+	list-style-position: inside;
+	counter-increment: dcnt;
+}
+.decimal_list > li:before {
+	display: inline;
+	content: counter(dcnt) '.';
+}
+
+// ページトップ
+.pagetop {
+	cursor: pointer;
+	display: none;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	z-index: 1000;
+}
+
+
+
+// ---------------------------------------------------- sp用↓
+@media screen and (max-width: 500px) {
+	body {
+		min-width: initial;
+	}
+
+	img {
+		width: 100%; // 追加
+		height: auto; // 追加
+		max-width: 100%;
+	}
+
+	// ページトップ
+	.pagetop {
+		bottom: 18vw;
+		right: 2vw;
+	}
+	.sp_fixed_none .pagetop {
+		bottom: 2vw;
+	}
+
+	// /*******ハンバーガー*******/
+	// #sp_menu_btn {
+	// 	width: 15vw;
+	// 	height: 15vw;
+	// 	display: -webkit-box;
+	// 	display: -webkit-flex;
+	// 	display: flex;
+	// 	-webkit-box-align: center;
+	// 	-webkit-align-items: center;
+	// 	align-items: center;
+	// 	-webkit-box-pack: center;
+	// 	-webkit-justify-content: center;
+	// 	justify-content: center;
+	// 	position: fixed;
+	// 	top: 0;
+	// 	right: 0;
+	// 	z-index: 1000;
+	// 	background-color: #dbc252;
+	// }
+	// #sp_menu_btn .hamburger-icon {
+	// 	position: relative;
+	// 	display: block;
+	// }
+	// #sp_menu_btn .hamburger-icon,
+	// #sp_menu_btn .hamburger-icon::before,
+	// #sp_menu_btn .hamburger-icon::after {
+	// 	width: 8vw;
+	// 	height: 2px;
+	// 	-webkit-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	// 	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	// 	background-color: #fff;
+	// }
+	// #sp_menu_btn .hamburger-icon::before,
+	// #sp_menu_btn .hamburger-icon::after {
+	// 	position: absolute;
+	// 	top: 2.5vw;
+	// 	left: 0;
+	// 	content: '';
+	// }
+	// #sp_menu_btn .hamburger-icon:after {
+	// 	top: -2.5vw;
+	// }
+	// #sp_menu_btn.active .hamburger-icon {
+	// 	background-color: transparent;
+	// }
+	// #sp_menu_btn.active .hamburger-icon::before,
+	// #sp_menu_btn.active .hamburger-icon::after {
+	// 	top: 0;
+	// }
+	// #sp_menu_btn.active .hamburger-icon::before {
+	// 	-webkit-transform: rotate(45deg);
+	// 	transform: rotate(45deg);
+	// }
+	// #sp_menu_btn.active .hamburger-icon::after {
+	// 	-webkit-transform: rotate(-45deg);
+	// 	transform: rotate(-45deg);
+	// }
+
+	/*******ドロワー*******/
+	// #drawer {
+	// 	display: block;
+	// 	position: fixed;
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	-webkit-transition: all 0.5s ease-in-out;
+	// 	transition: all 0.5s ease-in-out;
+	// 	z-index: 999;
+	// 	-webkit-transform: translate3d(100%, 0, 0);
+	// 	transform: translate3d(100%, 0, 0);
+	// 	visibility: hidden;
+	// 	opacity: 0;
+	// 	overflow-y: auto;
+	// 	height: 100%;
+	// 	width: 100%;
+	// 	padding: 15vw 15vw;
+	// }
+	// #drawer.active {
+	// 	visibility: visible;
+	// 	opacity: 1;
+	// 	-webkit-transform: translate3d(0, 0, 0);
+	// 	transform: translate3d(0, 0, 0);
+	// }
+}

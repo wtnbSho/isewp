@@ -1,0 +1,26 @@
+/*=============================================================
+_drawer.scss
+==============================================================*/
+@use '../../global' as *;
+.c-drawer {
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	transform: translate3d(100%, 0, 0);
+	visibility: hidden;
+	opacity: 0;
+	overflow-y: auto;
+	height: 100%;
+	width: 100%;
+	padding: 15vw 15vw;
+	background-color: #000;
+}
+.c-drawer.active {
+	transition: all 0.5s ease-in-out; // 画面表示時にドロワーちらつきを防止
+	visibility: visible;
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
