@@ -124,7 +124,9 @@ const sass = (done) => {
 /* -------------------------------- */
 const development = (done) => {
   // css
-  // 処理なし
+  src([paths.cssOthers.src, "!src/css/sourcemaps/**"]) // cssファイル内のfontsフォルダはこれでコピーされる。sourcemapsはコピーしない！
+    .pipe($.plumber())
+    .pipe(dest(paths.cssOthers.wpDest));
 
   // html
   // 処理なし
@@ -244,7 +246,7 @@ const bsInit = (done) => {
     // ========================================= PHP↑
     // ========================================= Local↓
 
-    proxy: "gito.local", // ローカルにある「Site Domain」に合わせる 例1 "localhost:10006", 例2 "gito.local"
+    proxy: "isewptemplate.local", // ローカルにある「Site Domain」に合わせる 例1 "localhost:10006", 例2 "gito.local"
     notify: false, // ブラウザ更新時に出てくる通知を非表示にする
     open: "external", // ローカルIPアドレスでサーバを立ち上げる
     // ========================================= Local↑
