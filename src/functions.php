@@ -318,6 +318,8 @@ add_filter(
       "{$_theme_name}/icomoon",
       "{$_theme_name}/src",
       "{$_theme_name}/package.json",
+      "{$_theme_name}/package-lock.json",
+      "{$_theme_name}/gulpfile.js",
     );
     return $exclude_filters;
   }
